@@ -1,5 +1,13 @@
 package com.persistnotes.persistnotes;
 
-public class Controller {
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
+public class Controller {
+	
+	@RequestMapping("/test")
+	public String retrieveAllCourses(){
+		return "Test";
+	}
 }

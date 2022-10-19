@@ -5,14 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.peratest.springboot.learnspringbootperaframework.TaskNotes;
 
 @SpringBootTest
 class PersistnotesApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
 	
 	int expectedValue=1;
 	@Test
