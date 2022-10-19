@@ -69,5 +69,20 @@ public class NotesList {
 		return notesList;
 	}
 	
-	
+	public Notes retrieveNote(int noteId) {
+		for(int i=0;i < notesList.size() ;i++) {
+			if (notesList.get(i).getId() == noteId) {
+				return notesList.get(i);
+			}
+		}
+		return null;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public ArrayList<Notes> getNotesList() {
+		return notesList;
+	}
 }
