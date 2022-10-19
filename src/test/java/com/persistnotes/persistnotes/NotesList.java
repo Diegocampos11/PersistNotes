@@ -28,4 +28,18 @@ public class NotesList {
 		notesList.add(note);	
 		return notesList;
 	}
+
+	public ArrayList<Notes> removeNoteFromList(int noteId) {
+	
+		for(int i=0;i < notesList.size() ;i++) {
+			if (notesList.get(i).getId() == noteId) {
+				notesList.remove(i);
+				return notesList;
+			}
+		}
+
+		return notesList;
+	}
+	
+	
 }

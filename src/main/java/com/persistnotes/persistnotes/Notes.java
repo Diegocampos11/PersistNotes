@@ -6,15 +6,15 @@ import io.micrometer.common.lang.Nullable;
 
 public class Notes {
 	
-	int id;
-	String description;
-	String text;
-	LocalDate dateOfCreation;
-	LocalDate estimatedDateOfCompletion;
-	LocalDate dateOfCompleation;
-	String link;
-	String mentions;
-	String priority;
+	private int id;
+	private String description;
+	private String text;
+	private LocalDate dateOfCreation;
+	private LocalDate estimatedDateOfCompletion;
+	private LocalDate dateOfCompleation;
+	private String link;
+	private String mentions;
+	private String priority;
 	
 	public Notes(int id, String description, String text, LocalDate dateOfCreation, LocalDate estimatedDateOfCompletion,
 			@Nullable LocalDate dateOfCompleation, String link, String mentions, String priority) {

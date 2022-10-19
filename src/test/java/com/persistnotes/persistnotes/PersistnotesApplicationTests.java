@@ -7,6 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.time.LocalDate;
 //import java.util.Date;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -55,5 +57,20 @@ class PersistnotesApplicationTests {
 		ArrayList<Notes> list = notesList.removeNoteFromList(1);
 		
 		assertEquals(expectedSizeArray,list.size());
+	}
+	
+	@Test
+	public void editNoteFromList_WhenCalled_ReturnsTheListWithTheModifiedObject() {
+		NotesList notesList = new NotesList();
+		Notes note = notesList.createNote("some description", "some text", "2022-10-24", "some link", "some mention", "low");
+		notesList.addNoteToList(note);
+		
+		Map<String, Object> values = new HashMap();
+		values.put("id", 1);
+		values.put("description", "some edited description");
+		ArrayList<Notes> list = notesList.editNoteFromList(values);
+		
+		assertEquals(list.get(1).getDescription(),"some edited description");
+		
 	}
 }
