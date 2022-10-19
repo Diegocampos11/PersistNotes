@@ -2,6 +2,7 @@ package com.persistnotes.persistnotes;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class NotesList {
 	
@@ -38,6 +39,33 @@ public class NotesList {
 			}
 		}
 
+		return notesList;
+	}
+
+	public ArrayList<Notes> editNoteFromList(Map<String, Object> values) {
+		int noteId = (int) values.get("id");
+		for(Notes note : notesList) {
+			if (note.getId() == noteId) {
+				// getting the rest of values
+				String description = values.containsKey("description") ? (String) values.get("description") : note.getDescription();
+				String text = values.containsKey("text") ? (String) values.get("text") : note.getText();
+				LocalDate dateOfCreation = values.containsKey("dateOfCreation") ? (LocalDate) values.get("dateOfCreation") : note.getDateOfCreation();
+				LocalDate estimatedDateOfCompletion = values.containsKey("estimatedDateOfCompletion") ? (LocalDate) values.get("estimatedDateOfCompletion") : note.getEstimatedDateOfCompletion();
+				LocalDate dateOfCompleation = values.containsKey("dateOfCompleation") ? (LocalDate) values.get("dateOfCompleation") : note.getDateOfCompleation();
+				String link = values.containsKey("link") ? (String) values.get("link") : note.getLink();
+				String mentions = values.containsKey("mentions") ? (String) values.get("mentions") : note.getMentions();
+				String priority = values.containsKey("priority") ? (String) values.get("priority") : note.getPriority();
+				//
+				note.setDescription(description);
+				note.setText(text);
+				note.setDateOfCreation(dateOfCreation);
+				note.setEstimatedDateOfCompletion(estimatedDateOfCompletion);
+				note.setDateOfCompleation(dateOfCompleation);
+				note.setLink(link);
+				note.setMentions(mentions);
+				note.setPriority(priority);
+			}
+		}
 		return notesList;
 	}
 	
