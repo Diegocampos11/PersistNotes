@@ -14,7 +14,7 @@ class PersistnotesApplicationTests {
 	public void incrementID_WhenCalled_ReturnsPreviusIdPlusOne() {
 		NotesList notesList = new NotesList();
 		int result = notesList.incrementId();
-		assertEquals(result,expectedValue);
+		assertEquals(expectedValue,result);
 	}
 
 }
