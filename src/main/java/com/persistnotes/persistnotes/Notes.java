@@ -1,21 +1,23 @@
 package com.persistnotes.persistnotes;
 
-import java.util.Date;
+import java.time.LocalDate;
+
+import io.micrometer.common.lang.Nullable;
 
 public class Notes {
 	
 	int id;
 	String description;
 	String text;
-	Date dateOfCreation;
-	Date estimatedDateOfCompletion;
-	Date dateOfCompleation;
+	LocalDate dateOfCreation;
+	LocalDate estimatedDateOfCompletion;
+	LocalDate dateOfCompleation;
 	String link;
 	String mentions;
 	String priority;
 	
-	public Notes(int id, String description, String text, Date dateOfCreation, Date estimatedDateOfCompletion,
-			Date dateOfCompleation, String link, String mentions, String priority) {
+	public Notes(int id, String description, String text, LocalDate dateOfCreation, LocalDate estimatedDateOfCompletion,
+			@Nullable LocalDate dateOfCompleation, String link, String mentions, String priority) {
 		super();
 		this.id = id;
 		this.description = description;
@@ -46,22 +48,22 @@ public class Notes {
 	public void setText(String text) {
 		this.text = text;
 	}
-	public Date getDateOfCreation() {
+	public LocalDate getDateOfCreation() {
 		return dateOfCreation;
 	}
-	public void setDateOfCreation(Date dateOfCreation) {
+	public void setDateOfCreation(LocalDate dateOfCreation) {
 		this.dateOfCreation = dateOfCreation;
 	}
-	public Date getEstimatedDateOfCompletion() {
+	public LocalDate getEstimatedDateOfCompletion() {
 		return estimatedDateOfCompletion;
 	}
-	public void setEstimatedDateOfCompletion(Date estimatedDateOfCompletion) {
+	public void setEstimatedDateOfCompletion(LocalDate estimatedDateOfCompletion) {
 		this.estimatedDateOfCompletion = estimatedDateOfCompletion;
 	}
-	public Date getDateOfCompleation() {
+	public LocalDate getDateOfCompleation() {
 		return dateOfCompleation;
 	}
-	public void setDateOfCompleation(Date dateOfCompleation) {
+	public void setDateOfCompleation(LocalDate dateOfCompleation) {
 		this.dateOfCompleation = dateOfCompleation;
 	}
 	public String getLink() {
