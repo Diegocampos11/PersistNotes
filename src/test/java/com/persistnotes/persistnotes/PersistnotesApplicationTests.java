@@ -25,7 +25,7 @@ class PersistnotesApplicationTests {
 
 	
 	@Test
-	public void addNote_WhenCalled_ReturnsNotes() {
+	public void createNote_WhenCalled_ReturnsNotes() {
 		Notes expectedNotes = new Notes(1, "some description", "some text", LocalDate.now(), LocalDate.parse("2022-10-24")
 				, null, "some link", "some mention", "low");
 		NotesList notesList = new NotesList();
@@ -35,11 +35,25 @@ class PersistnotesApplicationTests {
         .usingRecursiveComparison()
         .isEqualTo(result);
 	}
-	int expectedSizeArray=1;
+	
 	@Test
 	public void addNoteToList_WhenCalled_ReturnsTheListWithObejectAdded() {
+		int expectedSizeArray=1;
 		NotesList notesList = new NotesList();
-		ArrayList<Notes> list = notesList.addNoteToList();
+		Notes note = notesList.createNote("some description", "some text", "2022-10-24", "some link", "some mention", "low");
+		ArrayList<Notes> list = notesList.addNoteToList(note);
+		assertEquals(expectedSizeArray,list.size());
+	}
+
+	@Test
+	public void removeNoteToList_WhenCalled_ReturnsTheListWithObejectRemoved() {		
+		int expectedSizeArray=0;
+		NotesList notesList = new NotesList();
+		
+		Notes note = notesList.createNote("some description", "some text", "2022-10-24", "some link", "some mention", "low");
+		notesList.addNoteToList(note);
+		ArrayList<Notes> list = notesList.removeNoteFromList(1);
+		
 		assertEquals(expectedSizeArray,list.size());
 	}
 }

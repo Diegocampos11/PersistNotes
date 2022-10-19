@@ -8,8 +8,8 @@ public class NotesList {
 	private int id = 0;
 	private ArrayList<Notes> notesList;
 
-	public ArrayList<Notes> NotesList() {
-		return notesList = new ArrayList<Notes>();
+	public NotesList() {
+		notesList = new ArrayList<Notes>();
 	}
 	
 	public int incrementId() {
@@ -22,5 +22,10 @@ public class NotesList {
 		Notes newNote = new Notes(incrementId(), description, text, LocalDate.now(), LocalDate.parse(estimatedDate)
 					, null, link, mention, priority);
 		return newNote;
+	}
+
+	public ArrayList<Notes> addNoteToList(Notes note){
+		notesList.add(note);	
+		return notesList;
 	}
 }
