@@ -70,7 +70,7 @@ class PersistnotesApplicationTests {
 		values.put("description", "some edited description");
 		ArrayList<Notes> list = notesList.editNoteFromList(values);
 		
-		assertEquals(list.get(1).getDescription(),"some edited description");
+		assertEquals(list.get(0).getDescription(),"some edited description");
 		
 	}
 }
